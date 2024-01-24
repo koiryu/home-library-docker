@@ -1,0 +1,25 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/backend
+      - db-volume:/data
+      - ./uploads:/uploads
+    environment:
+      - FLASK_APP=app/__init__.py
+      - FLASK_ENV=development
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - /frontend/node_modules
+      - ./frontend:/frontend
+    environment:
+      - NODE_ENV=development
+volumes:
+  db-volume:  # ボリュームの定義
