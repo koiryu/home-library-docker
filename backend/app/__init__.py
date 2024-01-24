@@ -13,7 +13,7 @@ def create_app():
     app.logger.setLevel(logging.DEBUG)
     CORS(app)
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////data/db.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////var/data/db.sqlite'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)
